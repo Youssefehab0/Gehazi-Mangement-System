@@ -1,4 +1,4 @@
-# Gehazi | Gehazi System
+# Gehazi | Gehazi Management System
 
 An Arabic web project designed to present services, facilities, and a residential/commercial area in a simple and fast way. It focuses on a clear Arabic user experience, with key pages such as the homepage, news, registration, bookings, and complaints.
 
