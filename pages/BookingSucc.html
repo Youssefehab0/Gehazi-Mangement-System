@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      direction: rtl;
+      background-color: white;
+     
+    }
+
+    .header {
+      position: relative;
+      background-image: url('Screenshot 2025-04-05 062725.png');
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+      color: white;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.9);
+      /* Darker background */
+      color: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .hero-content {
+      position: absolute;
+      /* Change to absolute positioning */
+      top: 50%;
+      /* Center vertically */
+      left: 50%;
+      /* Center horizontally */
+      transform: translate(-50%, -50%);
+      /* Adjust position to truly center */
+      z-index: 2;
+      /* Ensure it appears above the overlay */
+      text-align: center;
+      /* Center text */
+    }
+
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      padding: 5px 15px;
+      direction: rtl;
+    }
+
+    .logo a {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-links li a {
+      color: #ddd;
+      font-weight: bold;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: background-color 0.3s, color 0.3s;
+      text-decoration: none;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      background-color: #04AA6D;
+      color: white;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.95);
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .menu-toggle:checked~.nav-links {
+        max-height: 500px;
+        opacity: 1;
+        pointer-events: auto;
+        padding-bottom: 20px;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
+
+
+    h2 {
+      text-align: center;
+      margin: 40px 10px 20px;
+      font-size: 22px;
+    }
+    
+    /* Success Message */
+    .success {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .success .checkmark {
+      font-size: 80px;
+      color: green;
+    }
+
+    .success p {
+      font-size: 28px;
+      margin-top: 20px;
+      color: #000;
+    }
+    .queue-info {
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 500px;
+      border: 1px solid black;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      color: #333;
+    }
+
+    .queue-number {
+      color: #0070d1;
+      font-size: 42px;
+      margin-top: 10px;
+      display: block;
+    }
+     /* Footer */
+     .footer {
+      background-color: #0f1c55;
+      color: white;
+      padding: 30px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin-top: 50px;
+      margin-bottom: -40px;
+    }
+
+    .footer .column {
+      min-width: 120px;
+      margin: 10px;
+    }
+
+    .footer h4 {
+      margin-bottom: 10px;
+    }
+
+    .footer p {
+      margin: 5px 0;
+    }
+
+    .language-selector {
+      margin-top: 15px;
+    }
+
+    .language-selector select {
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .social-icons {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .social-icons i {
+      margin: 0 10px;
+      font-size: 20px;
+    }
+    span{
+      margin: 20px;
+    }
+
+    </style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="overlay"></div>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <div class="logo">
+           <a href="#">جهازي</a> 
+        </div> 
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+           <i class="fas fa-bars"></i>
+           </label>
+        <ul class="nav-links">
+          <li><a href="Landing_Page.html">الرئيسية</a></li>
+          <li><a href="newsPage.html" class="active">الأخبار</a></li>
+          <li><a href="#">حول</a></li>
+          <li><a href="ComplaintPage.html">تواصل</a></li>
+          <li><a href="BookingPage.html">احجز دورك</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="hero-content">
+      <h1>التحقق من الشكوى </h1>
+    </div>
+  </div>
+      <!-- Success Message -->
+  <div class="success">
+    <div class="checkmark"><img src="../assets/images/images (1).png" alt=""></div>
+    <p>تم تقديم شكوتك بنجاح</p>
+  </div>
+  <h2>تم حجز دورك رقمك 58</h2>
+  <div class="queue-info" id="queue-info" >
+    عدد الأشخاص في الطابور حالياً:
+    <span id="queue-number" class="queue-number">58</span>
+    <span>سيتم التقديم على الخدمة يوم الأثنين القادم الموافق 22/9</span>
+  </div>
+   
+ <!-- Footer -->
+ <div class="footer">
+    <div class="column">
+      <h4>المزيد</h4>
+      <p>سياسة الخصوصية</p>
+    </div>
+    <div class="column">
+      <h4>تواصل</h4>
+      <p>اتصل بنا</p>
+      <p>مركز المساعدة</p>
+    </div>
+    <div class="column">
+      <h4>عن جهازي</h4>
+      <p>الخدمات الأكثر طلباً</p>
+      <p>فريقنا</p>
+    </div>
+    <div class="column">
+      <h4>اللغة</h4>
+      <div class="language-selector">
+        <select>
+          <option>العربية</option>
+          <option>English</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social Icons -->
+  <div class="social-icons">
+    <i class="fab fa-whatsapp"></i>
+    <i class="fab fa-instagram"></i>
+    <i class="fab fa-facebook"></i>
+  </div>
+</body>
+</html>

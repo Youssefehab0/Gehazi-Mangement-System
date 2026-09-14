@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    
+    overflow: hidden;
+}
+
+.imageSection {
+    flex: 1;
+    position: relative;
+}
+
+.imageSection img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
+
+.form-box {
+    flex: 1;
+    background-color: rgb(238, 238, 238);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+form {
+    width: 100%;
+}
+
+.container h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.input-box {
+    position: relative;
+    margin: 20px 0;
+}
+
+.input-box input {
+    width: 65%;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+    background-color: #ccc;
+}
+
+.input-box input::placeholder {
+    color: #888;
+    font-weight: 400;
+}
+
+.input-box img {
+    position: absolute;
+    right: 140px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.forget-link {
+    margin: 10px 0;
+}
+
+.forget-link a {
+    font-size: 14.5px;
+    color: #333;
+    text-decoration: none;
+}
+
+.btn {
+    width: 65%;
+    height: 48px;
+    background-color: #7494ec;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    margin: 20px 0;
+}
+
+.container p {
+    font-size: 14.5px;
+    margin: 15px 0;
+}
+
+.social-icons a {
+    display: inline-flex;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+    margin: 0 8px;
+}
+.Overlay-txt {
+    position: absolute;
+    top: 20%; /* Adjust as needed */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; /* Change text color as needed */
+    font-size: 40px; /* Adjust font size as needed */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); /* Optional for better visibility */
+    z-index: 1;
+   text-align: center;
+}
+.dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.29); /* Adjust the alpha for darkness */
+    z-index: 1; /* Ensure it sits on top of the image */
+}
+.Reg {
+    margin-top: 20px;
+}

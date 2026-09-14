@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جهازي - الأخبار</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+      direction: rtl;
+    }
+    /* Header */
+    .header {
+      position: relative;
+      background-image: url('Screenshot 2025-04-05 062725.png');
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+      color: white;
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    .navbar {
+            position: sticky;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.9); /* Darker background */
+            color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease-in-out;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 5px 15px;
+    direction: rtl;
+}
+
+.logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-links li a {
+    color: #ddd;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: none;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    background-color: #04AA6D;
+    color: white;
+    
+}
+
+.hamburger {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.95);
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .menu-toggle:checked ~ .nav-links {
+        max-height: 500px;
+        opacity: 1;
+        pointer-events: auto;
+        padding-bottom: 20px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+.header h1 {
+            margin-top: 100px;
+            font-size: 2em;
+            position: relative;
+            z-index: 2;
+        }
+        .header p {
+            font-size: 1.2em;
+            position: relative;
+            z-index: 2;
+        }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      margin-top: 150px;
+      margin-right: 80px;
+    }
+    .hero-content h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .hero-content .btn {
+      padding: 10px 25px;
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .hero-content .btn:hover {
+      background-color: white;
+      color: #000;
+      transform: scale(1.05);
+    }
+    .search-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+      padding: 0 20px;
+    }
+    .search {
+      display: flex;
+      border-radius: 8px;
+      overflow: hidden;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .search input[type="text"] {
+      padding: 10px 15px;
+      width: 100%;
+      font-size: 16px;
+      border: none;
+      outline: none;
+    }
+    .search button {
+      padding: 0 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .search button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+    .card {
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      margin: 30px auto;
+      padding: 20px;
+      max-width: 50%;
+      text-align: right;
+    }
+    .card-header {
+      background-color: black;
+      height: 12px;
+      width: 50%;
+    }
+    .card-body h2 {
+      font-size: 22px;
+      margin: 15px 0 10px;
+    }
+    .card-body p {
+      font-size: 16px;
+      color: #444;
+    }
+    .card-body .btn {
+      margin-top: 15px;
+      padding: 10px 25px;
+      background-color: transparent;
+      color: black;
+      border: 1.5px solid black;
+      border-radius: 25px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    .card-body .btn:hover {
+      background-color: black;
+      color: white;
+      transform: scale(1.05);
+    }
+    /* Footer */
+    .footer {
+            background-color: #0a183d;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 60px;
+            padding: 20px;
+        }
+        .footer-column h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .footer-column p {
+            margin: 5px 0;
+            color: #ccc;
+            cursor: pointer;
+        }
+        .footer-column p:hover {
+            color: #fff;
+        }
+        .social-icons {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .social-icons i {
+            font-size: 20px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .social-icons i:hover {
+            color: #ddd;
+        }
+    @media (max-width: 768px) {
+      .hero-content {
+        margin-right: 20px;
+        margin-top: 100px;
+      }
+      .card {
+        margin: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <div class="overlay"></div>
+    <nav class="navbar">
+      <div class="navbar-container">
+          <div class="logo">
+              <a href="#">جهازي</a>
+          </div>
+          <input type="checkbox" id="menu-toggle" class="menu-toggle">
+          <label for="menu-toggle" class="hamburger">
+              <i class="fas fa-bars"></i>
+          </label>
+          <ul class="nav-links">
+              <li><a href="Landing_Page.html" >الرئيسية</a></li>
+              <li><a href="newsPage.html" class="active">الأخبار</a></li>
+              <li><a href="#">حول</a></li>
+              <li><a href="ComplaintPage.html">تواصل</a></li>
+              <li><a href="BookingPage.html">احجز دورك</a></li>
+          </ul>
+      </div>
+  </nav>
+    <div class="hero-content">
+      <h1>اعلم بجميع الأخبار عن مدينتك</h1>
+      
+    </div>  
+  </div>
+  <!-- Search -->
+  <div class="search-container">
+    <div class="search">
+      <input type="text" placeholder="ابحث عن أخبار مدينتك...">
+      <button class="cta"><i class="fas fa-search"></i></button>
+    </div>
+  </div>
+  <!-- News Cards -->
+   <form action="Read_More.html">
+  <div class="card">
+    <div class="card-header"></div>
+    <div class="card-body">
+      <h2>انقطاع المياه في منطقة الـ 800</h2>
+      <p>صيانة شبكة المياه يوم الأربعاء من 5:00 مساءً حتى 10:00 مساءً.</p>
+      <button class="btn"><i class="fas fa-book-open"></i> اقرأ المزيد</button>
+    </div>
+  </div>
+</form>
+<form action="Read_More2.html">
+  <div class="card">
+    <div class="card-header"></div>
+    <div class="card-body">
+      <h2>افتتاح Café الزهرة في المدينة</h2>
+      <p>كافيه جديد يقدم خصومات 20% بمناسبة الافتتاح!</p>
+      <button class="btn"><i class="fas fa-book-open"></i> اقرأ المزيد</button>
+    </div>
+  </div>
+</form>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>عن جهازي</h3>
+            <p>الخدمات الأكثر طلبًا</p>
+            <p>فريقنا</p>
+        </div>
+        <div class="footer-column">
+            <h3>تواصل</h3>
+            <p>اتصل بنا</p>
+            <p>مركز المساعدة</p>
+        </div>
+    </div>
+    <div class="social-icons">
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-instagram"></i>
+    </div>
+    <div style="margin-top: 20px; font-size: 14px; color: #ccc;">
+        &copy; 2025 جهازي - جميع الحقوق محفوظة
+    </div>
+</footer>
+</body>
+</html>
